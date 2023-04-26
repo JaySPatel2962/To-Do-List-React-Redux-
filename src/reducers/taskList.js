@@ -20,7 +20,7 @@ export const taskListSlice = createSlice({
             }
         },
         deleteTask: (state, action) => {
-            state.value = state.value.filter(ele => ele.timestamp != action.payload)
+            state.value = state.value.filter(ele => ele.timestamp !== action.payload)
             localStorage.setItem('to-do-list', JSON.stringify(state.value));
         },
         deleteAll: (state) => {
@@ -30,7 +30,7 @@ export const taskListSlice = createSlice({
         completeTask: (state, action) => {
             let index = 0;
             for (let i = 0; i < state.value.length; i++) {
-                if (state.value[i].timestamp == action.payload) {
+                if (state.value[i].timestamp === action.payload) {
                     index = i;
                     break;
                 }
